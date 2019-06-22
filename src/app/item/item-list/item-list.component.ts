@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { StarwarsService } from 'src/app/shared/starwars.service';
+import { ActivatedRoute } from '@angular/router';
+
+import {Item} from '../../model/item.model';
 
 @Component({
   selector: 'app-item-list',
@@ -7,9 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemListComponent implements OnInit {
 
-  constructor() { }
+  cat:string;
+  items:any=[];
+  constructor(private _swService:StarwarsService,
+              private _route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.getItemsByCategory();
+  }
+
+  getItemsByCategory():void{
+    this._route.paramMap.subscribe(
+      (param)=>{
+        this.cat=param.get('cat').toLowerCase();
+        this._swService.getItemsByCategory(this.cat).subscribe(
+          (data)=>this.items=data,
+          (err)=>console.log(err)
+        );
+        console.log("data",this.items);
+      }
+    )
   }
 
 }
