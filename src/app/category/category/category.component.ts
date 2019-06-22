@@ -15,7 +15,7 @@ export class CategoryComponent implements OnInit {
     //haven't found data in SWAPI, just hard code for now
     this.categories=[
       'Planets',
-      'Spaceships',
+      'Starships',
       'Vehicles',
       'People',
       'Films',

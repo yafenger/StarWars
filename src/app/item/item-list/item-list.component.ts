@@ -25,7 +25,7 @@ export class ItemListComponent implements OnInit {
       (param)=>{
         this.cat=param.get('cat').toLowerCase();
         this._swService.getItemsByCategory(this.cat).subscribe(
-          (data)=>this.items=data,
+          (response)=>this.items=response.results,
           (err)=>console.log(err)
         );
         console.log("data",this.items);
