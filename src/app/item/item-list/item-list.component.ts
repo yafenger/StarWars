@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StarwarsService } from 'src/app/shared/starwars.service';
 import { ActivatedRoute } from '@angular/router';
-
-import {Item} from '../../model/item.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item-list',
@@ -14,7 +13,8 @@ export class ItemListComponent implements OnInit {
   cat:string;
   items:any=[];
   constructor(private _swService:StarwarsService,
-              private _route:ActivatedRoute) { }
+              private _route:ActivatedRoute,
+              private _router:Router) { }
 
   ngOnInit() {
     this.getItemsByCategory();
@@ -31,6 +31,10 @@ export class ItemListComponent implements OnInit {
         console.log("data",this.items);
       }
     )
+  }
+
+  clickToBack(){
+    this._router.navigate(['category']);
   }
 
 }

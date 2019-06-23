@@ -11,12 +11,11 @@ import {Item} from '../model/item.model';
 })
 export class StarwarsService {
 
-  baseUrl = environment.apiUrl;
+ // baseUrl = environment.apiUrl;
 
   constructor(private httpClient: HttpClient) { }
 
   getItemsByCategory(cat:string):Observable<any>{
-    console.log('url',this.baseUrl+cat);
     return this.httpClient.get<any>('/api/'+cat)
                .pipe(catchError(this.handleError));
   }
