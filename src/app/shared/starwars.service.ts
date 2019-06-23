@@ -17,7 +17,7 @@ export class StarwarsService {
 
   getItemsByCategory(cat:string):Observable<any>{
     console.log('url',this.baseUrl+cat);
-    return this.httpClient.get<any>(this.baseUrl+cat)
+    return this.httpClient.get<any>('/api/'+cat)
                .pipe(catchError(this.handleError));
   }
 
