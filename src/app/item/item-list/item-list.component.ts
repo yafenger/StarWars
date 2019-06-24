@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { StarwarsService } from 'src/app/shared/starwars.service';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {StarwarsService} from 'src/app/shared/starwars.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-item-list',
@@ -10,30 +9,32 @@ import { Router } from '@angular/router';
 })
 export class ItemListComponent implements OnInit {
 
-  cat:string;
-  items:any=[];
-  constructor(private _swService:StarwarsService,
-              private _route:ActivatedRoute,
-              private _router:Router) { }
+  cat: string;
+  items: any = [];
+
+  constructor(private _swService: StarwarsService,
+              private _route: ActivatedRoute,
+              private _router: Router) {
+  }
 
   ngOnInit() {
     this.getItemsByCategory();
   }
 
-  getItemsByCategory():void{
+  getItemsByCategory(): void {
     this._route.paramMap.subscribe(
-      (param)=>{
-        this.cat=param.get('cat').toLowerCase();
+      (param) => {
+        this.cat = param.get('cat').toLowerCase();
         this._swService.getItemsByCategory(this.cat).subscribe(
-          (response)=>this.items=response.results,
-          (err)=>console.log(err)
+          (response) => this.items = response.results,
+          (err) => console.log(err)
         );
-        console.log("data",this.items);
+        console.log("data", this.items);
       }
     )
   }
 
-  clickToBack(){
+  clickToBack() {
     this._router.navigate(['category']);
   }
 

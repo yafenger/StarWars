@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ItemListComponent } from '../item/item-list/item-list.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ItemListComponent} from '../item/item-list/item-list.component';
 
 @NgModule({
   declarations: [
@@ -9,8 +9,9 @@ import { ItemListComponent } from '../item/item-list/item-list.component';
   imports: [
     CommonModule
   ],
-  exports:[
+  exports: [
     ItemListComponent
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+}

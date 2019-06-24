@@ -1,14 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { ItemRoutingModule } from './item-routing.module';
-import { ItemDetailComponent } from './item-detail/item-detail.component';
-import { SharedModule } from '../shared/shared.module';
+import {ItemRoutingModule} from './item-routing.module';
+import {ItemDetailComponent} from './item-detail/item-detail.component';
+import {SharedModule} from '../shared/shared.module';
+
 // import { ItemListComponent } from './item-list/item-list.component';
 
 @NgModule({
   declarations: [
-    ItemDetailComponent, 
+    ItemDetailComponent,
     // ItemListComponent
   ],
   imports: [
@@ -17,4 +18,5 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ]
 })
-export class ItemModule { }
+export class ItemModule {
+}

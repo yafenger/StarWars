@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-category',
@@ -8,12 +8,14 @@ import { Router } from '@angular/router';
 })
 export class CategoryComponent implements OnInit {
 
-  categories:string[]=[];
-  constructor(private _router:Router) { }
+  categories: string[] = [];
+
+  constructor(private _router: Router) {
+  }
 
   ngOnInit() {
     //haven't found data in SWAPI, just hard code for now
-    this.categories=[
+    this.categories = [
       'Planets',
       'Starships',
       'Vehicles',
@@ -23,8 +25,8 @@ export class CategoryComponent implements OnInit {
     ]
   }
 
-  onClick(cat:string){
-    this._router.navigate(['category/items',cat]);
+  onClick(cat: string) {
+    this._router.navigate(['category/items', cat]);
   }
 
 }
