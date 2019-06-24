@@ -10,3 +10,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 4. pull the latest updates `git pull`
 5. build the dist file `sudo ng build --prod --build-optimizer`
 6. restart nginx server `sudo service nginx restart`
+
+# Github configure 
+1. follow the guide
+2. start the agent with `eval `ssh-agent -s`
+3. add the key `ssh-add <key name>`
+reference: https://help.github.com/en/articles/connecting-to-github-with-ssh
