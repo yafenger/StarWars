@@ -11,6 +11,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 5. build the dist file `sudo ng build --prod --build-optimizer`
 6. restart nginx server `sudo service nginx restart`
 
+Reference: https://joeonsoftware.com/2018/08/12/deploy-an-angular-app-in-production-with-nginx-ubuntu-on-ec2/
+
 # Github configure 
 1. follow the guide
 2. start the agent with - eval `ssh-agent -s`
