@@ -12,9 +12,11 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 6. restart nginx server `sudo service nginx restart`
 
 Reference: https://joeonsoftware.com/2018/08/12/deploy-an-angular-app-in-production-with-nginx-ubuntu-on-ec2/
+https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04
+
 
 # Github configure 
 1. follow the guide
 2. start the agent with - eval `ssh-agent -s`
-3. add the key `ssh-add <key name>`
+3. add the key `ssh-add <key name>`  
 reference: https://help.github.com/en/articles/connecting-to-github-with-ssh
