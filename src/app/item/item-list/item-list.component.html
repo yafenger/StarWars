@@ -1,6 +1,7 @@
 <h1 style="color:blue" (click)="clickToBack()">{{cat}}<<</h1>
-<div *ngFor="let item of items">
+<div *ngFor="let item of items;index as itemid">
   <div>
-    <h2><a>{{item.name}}</a></h2>
+    <h2><a>{{itemid}}</a></h2>
+    <h2><a (click)="onClick(cat.toString(),itemid.toString())">{{item.name}}</a></h2>
   </div>
 </div> 
