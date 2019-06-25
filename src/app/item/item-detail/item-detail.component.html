@@ -1,3 +1,6 @@
-<p>
-  item-detail works!
-</p>
+<h1 style="color:blue" (click)="clickToBack()">{{itemid}}<<</h1>
+<div *ngFor="let itemdetail of itemdetails">
+  <div>
+    <h2><a>{{itemdetail.gender}}</a></h2>
+  </div>
+</div> 

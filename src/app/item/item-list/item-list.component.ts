@@ -20,7 +20,9 @@ export class ItemListComponent implements OnInit {
   ngOnInit() {
     this.getItemsByCategory();
   }
-
+  onClick(cat: string,itemid:string) {
+    this._router.navigate(['item/'+cat+'/'+itemid]);
+  }
   getItemsByCategory(): void {
     this._route.paramMap.subscribe(
       (param) => {
