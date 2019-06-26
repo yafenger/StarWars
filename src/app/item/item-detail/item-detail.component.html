@@ -4,6 +4,26 @@
     <table>
         <tr><td>Name:<td>{{itemdetails.name}} </td></tr>
         <tr><td>Height:</td><td>{{itemdetails.height}} </td></tr>
+        <tr><td>Mass:</td><td>{{itemdetails.mass}}</td></tr>
+        <tr><td>Hair Color:</td><td>{{itemdetails.hair_color}}</td></tr>
+        <tr><td>Skin Color:</td><td>{{itemdetails.skin_color}}</td></tr>
+        <tr><td>Eye Color:</td><td>{{itemdetails.eye_color}}</td></tr>
+        <tr><td>Birth Year:</td><td>{{itemdetails.birth_year}}</td></tr>
+        <tr><td>Gender:</td><td>{{itemdetails.gender}}</td></tr>
+        <tr><td>Homeworld:</td><td>{{itemdetails.homeworld}}</td></tr>
+    </table>
+  </div>
+  <div *ngIf="cat==='planets'">
+    <table>
+        <tr><td>Name:<td>{{itemdetails.name}} </td></tr>
+        <tr><td>Height:</td><td>{{itemdetails.rotation_period}} </td></tr>
+        <tr><td>Mass:</td><td>{{itemdetails.orbital_period}}</td></tr>
+        <tr><td>Hair Color:</td><td>{{itemdetails.diameter}}</td></tr>
+        <tr><td>Skin Color:</td><td>{{itemdetails.climate}}</td></tr>
+        <tr><td>Eye Color:</td><td>{{itemdetails.gravity}}</td></tr>
+        <tr><td>Birth Year:</td><td>{{itemdetails.terrain}}</td></tr>
+        <tr><td>Gender:</td><td>{{itemdetails.surface_water}}</td></tr>
+        <tr><td>Homeworld:</td><td>{{itemdetails.population}}</td></tr>
     </table>
   </div>
 <!-- </div>  -->
