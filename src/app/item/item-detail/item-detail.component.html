@@ -1,6 +1,9 @@
-<h1 style="color:blue" (click)="clickToBack()">{{itemid}}<<</h1>
-<div *ngFor="let itemdetail of itemdetails">
-  <div>
-    <h2><a>{{itemdetail.gender}}</a></h2>
+<h1 style="color:blue" (click)="clickToBack()">Back{{itemid}}<<</h1>
+<!-- <div *ngFor="let itemdetail of itemdetails"> -->
+  <div *ngIf="cat==='people'">
+    <table>
+        <tr><td>Name:<td>{{itemdetails.name}} </td></tr>
+        <tr><td>Height:</td><td>{{itemdetails.height}} </td></tr>
+    </table>
   </div>
-</div> 
+<!-- </div>  -->

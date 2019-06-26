@@ -11,7 +11,7 @@ export class ItemDetailComponent implements OnInit {
 
   cat:string
   itemid: string;
-  itemdetails: any = [];
+  itemdetails: any;
 
   constructor(private _swService: StarwarsService,
               private _route: ActivatedRoute,
@@ -26,9 +26,9 @@ export class ItemDetailComponent implements OnInit {
     this._route.paramMap.subscribe(
       (param) => {
         this.cat = param.get('cat').toLowerCase();
-        this.itemid = param.get('itemid').toString();
+        this.itemid = param.get('itemid');
         this._swService.getItemDetialsByItem(this.cat,this.itemid).subscribe(
-          (response) => this.itemdetails = response.results,
+          (response) => this.itemdetails = response,
           (err) => console.log(err)
         );
         console.log("data", this.itemdetails);
