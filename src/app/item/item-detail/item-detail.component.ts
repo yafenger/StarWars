@@ -27,7 +27,7 @@ export class ItemDetailComponent implements OnInit {
       (param) => {
         this.cat = param.get('cat').toLowerCase();
         this.itemid = param.get('itemid').toString();
-        this._swService.getItemDetialsByItem(this.cat,this.itemid,).subscribe(
+        this._swService.getItemDetialsByItem(this.cat,this.itemid).subscribe(
           (response) => this.itemdetails = response.results,
           (err) => console.log(err)
         );
