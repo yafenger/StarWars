@@ -12,6 +12,8 @@ export class ItemDetailComponent implements OnInit {
   cat:string
   itemid: string;
   itemdetails: any;
+  // relateditemadress: string=string[];
+  // relateditems:any=[];
 
   constructor(private _swService: StarwarsService,
               private _route: ActivatedRoute,
@@ -20,8 +22,21 @@ export class ItemDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getItemDetialsByItem();
+    // this.getRelatedItem()
   }
 
+  // getRelatedItem(): void {
+  //   this._route.paramMap.subscribe(
+  //     (param) => {
+  //       this.relateditemadress =this.itemdetails.film;
+  //       this._swService.getRelatedItem(this.relateditemadress).subscribe(
+  //         (response) => this.relateditems = response,
+  //         (err) => console.log(err)
+  //       );
+  //       console.log("data", this.itemdetails);
+  //     }
+  //   )
+  // }
   getItemDetialsByItem(): void {
     this._route.paramMap.subscribe(
       (param) => {

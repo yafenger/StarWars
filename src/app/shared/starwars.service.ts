@@ -21,6 +21,10 @@ export class StarwarsService {
     return this.httpClient.get<any>('/api/'+cat+'/'+itemid)
       .pipe(catchError(this.handleError));
   }
+  // getRelatedItem(relateditem:string):Observable<any> {
+  //   return this.httpClient.get<any>('/api/'+relateditem)
+  //     .pipe(catchError(this.handleError));
+  // }
   private handleError(errorResponse: HttpErrorResponse) {
     if (errorResponse.error instanceof ErrorEvent) {
       console.error('Client Side Error :', errorResponse.error.message);

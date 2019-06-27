@@ -21,7 +21,9 @@ export class ItemListComponent implements OnInit {
     this.getItemsByCategory();
   }
   onClick(cat: string,itemurl:string) {
-    var itemid=itemurl.substr(-2,1);
+    var strs= new Array(); 
+    strs=itemurl.split("/");
+    var itemid=strs[strs.length-2];
     console.log(itemid);
     this._router.navigate(['item/'+cat+'/'+itemid]);
   }
