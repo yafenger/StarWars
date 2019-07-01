@@ -30,7 +30,7 @@ export class ItemListComponent implements OnInit {
   getItemsByCategory(): void {
     this._route.paramMap.subscribe(
       (param) => {
-        this.cat = param.get('cat').toLowerCase();
+        this.cat = param.get('cat');
         this._swService.getItemsByCategory(this.cat).subscribe(
           (response) => this.items = response.results,
           (err) => console.log(err)

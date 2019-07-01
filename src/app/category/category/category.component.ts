@@ -26,6 +26,7 @@ export class CategoryComponent implements OnInit {
   }
 
   onClick(cat: string) {
+    cat=cat.toLowerCase();
     this._router.navigate(['category/items', cat]);
   }
 

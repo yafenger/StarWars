@@ -12,9 +12,9 @@ export class ItemDetailComponent implements OnInit {
   cat:string
   itemid: string;
   itemdetails: any;
-  // relateditemadress: string=string[];
-  // relateditems:any=[];
-
+  relatedfilms:string [];
+  key:string;
+  initcomments:string;
   constructor(private _swService: StarwarsService,
               private _route: ActivatedRoute,
               private _router: Router) {
@@ -22,35 +22,45 @@ export class ItemDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getItemDetialsByItem();
-    // this.getRelatedItem()
   }
-
-  // getRelatedItem(): void {
-  //   this._route.paramMap.subscribe(
-  //     (param) => {
-  //       this.relateditemadress =this.itemdetails.film;
-  //       this._swService.getRelatedItem(this.relateditemadress).subscribe(
-  //         (response) => this.relateditems = response,
-  //         (err) => console.log(err)
-  //       );
-  //       console.log("data", this.itemdetails);
-  //     }
-  //   )
-  // }
+  
   getItemDetialsByItem(): void {
     this._route.paramMap.subscribe(
       (param) => {
-        this.cat = param.get('cat').toLowerCase();
+        this.cat = param.get('cat');
         this.itemid = param.get('itemid');
         this._swService.getItemDetialsByItem(this.cat,this.itemid).subscribe(
-          (response) => this.itemdetails = response,
+          (response) =>{ this.itemdetails = response;
+            if(this.cat!="films")
+            {
+              this.key=response.name;
+            }
+            else{
+              this.key=response.title;
+            }
+            console.log("data", this.itemdetails);
+            console.log("key", this.key);
+          this.initcomments=localStorage.getItem(this.key)},
           (err) => console.log(err)
         );
-        console.log("data", this.itemdetails);
+        
       }
     )
   }
 
+  onClick(cat: string,itemurl:string) {
+    var strs= new Array(); 
+    strs=itemurl.split("/");
+    var itemid=strs[strs.length-2];
+    console.log(itemid);
+    this._router.navigate(['item/'+cat+'/'+itemid]);
+  }
+  WriteToStorage(key:string,comments:string) {
+    console.log(key);
+    localStorage.setItem(key,comments);
+    console.log(comments);
+  }
+  
   clickToBack() {
     this._router.navigate(['category/items',this.cat]);
   }
