@@ -1,6 +1,32 @@
-<h1 style="color:blue" (click)="clickToBack()">{{cat}}<<</h1>
+<!-- <h1 style="color:blue" (click)="clickToBack()">{{cat}}<<</h1>
 <div *ngFor="let item of items">
-  <div>
-    <h2><a (click)="onClick(cat.toString(),item.url.toString())">{{item.name}}</a></h2>
-  </div>
-</div> 
+     <ng-template [ngIf]="cat==='films'" [ngIfElse]="others">
+        <div>
+            <h2><a (click)="onClick(cat.toString(),item.url.toString())">{{item.title}}</a></h2>
+        </div>
+      </ng-template>
+      
+      <ng-template #others>
+          <div >
+              <h2><a (click)="onClick(cat.toString(),item.url.toString())">{{item.name}}</a></h2>
+            </div>
+      </ng-template>
+</div>  -->
+
+<div class="container">
+    <div class="card" *ngFor="let item of items">
+        <div class="card-body">
+            <ng-template [ngIf]="cat==='films'" [ngIfElse]="others">
+                <div>
+                    <h2><a (click)="onClick(cat.toString(),item.url.toString())">{{item.title}}</a></h2>
+                </div>
+            </ng-template>
+
+            <ng-template #others>
+                <div>
+                    <h2><a (click)="onClick(cat.toString(),item.url.toString())">{{item.name}}</a></h2>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

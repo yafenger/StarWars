@@ -1,5 +1,12 @@
-<div *ngFor="let cat of categories">
-  <div>
-    <h2><a (click)="onClick(cat)">{{cat}}</a></h2>
+<br/>
+<div id="main">
+    <div id="container">
+      <div class="grid grid-pad">
+        <a *ngFor="let cat of categories" class="col-1-6" (click)="onClick(cat)">
+          <div class="module">
+            <h4>{{ cat }}</h4>
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
-</div> 

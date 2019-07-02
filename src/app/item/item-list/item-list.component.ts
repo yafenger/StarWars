@@ -20,17 +20,11 @@ export class ItemListComponent implements OnInit {
   ngOnInit() {
     this.getItemsByCategory();
   }
-  onClick(cat: string,itemurl:string) {
-    var strs= new Array(); 
-    strs=itemurl.split("/");
-    var itemid=strs[strs.length-2];
-    console.log(itemid);
-    this._router.navigate(['item/'+cat+'/'+itemid]);
-  }
+
   getItemsByCategory(): void {
     this._route.paramMap.subscribe(
       (param) => {
-        this.cat = param.get('cat').toLowerCase();
+        this.cat = param.get('cat');
         this._swService.getItemsByCategory(this.cat).subscribe(
           (response) => this.items = response.results,
           (err) => console.log(err)
@@ -42,6 +36,15 @@ export class ItemListComponent implements OnInit {
 
   clickToBack() {
     this._router.navigate(['category']);
+  }
+
+    
+  onClick(cat: string,itemurl:string) {
+    var strs= new Array(); 
+    strs=itemurl.split("/");
+    var itemid=strs[strs.length-2];
+    console.log(itemid);
+    this._router.navigate(['item/'+cat+'/'+itemid]);
   }
 
 }
