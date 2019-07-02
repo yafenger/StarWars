@@ -14,6 +14,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 Reference: https://joeonsoftware.com/2018/08/12/deploy-an-angular-app-in-production-with-nginx-ubuntu-on-ec2/
 https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04
 
+using ng serve for development
+https://medium.com/better-programming/how-to-properly-get-angular-and-nginx-working-together-for-development-3e5d158734bf
+https://github.com/angular/angular-cli/issues/4951
+
 
 # Github configure 
 1. follow the guide
