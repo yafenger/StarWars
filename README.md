@@ -15,9 +15,15 @@ Reference:
 https://joeonsoftware.com/2018/08/12/deploy-an-angular-app-in-production-with-nginx-ubuntu-on-ec2/  
 https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04
 
-using ng serve for development  
+# DevOps
+using ng serve for automatic building development(forever)  
 https://medium.com/better-programming/how-to-properly-get-angular-and-nginx-working-together-for-development-3e5d158734bf  
 https://github.com/angular/angular-cli/issues/4951  
+
+# Setting up domain name, DNS routing, HTTPS and SSL cert  
+https://my.freenom.com/clientarea.php?action=domaindetails&id=1065661230  
+https://www.youtube.com/watch?v=HwZ3wNaM69s  
+https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04  
 
 # Github configure 
 1. follow the guide
