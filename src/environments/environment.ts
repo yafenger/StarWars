@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://swapi.co/api/'
+  mobile_size: 700
 };
 
 

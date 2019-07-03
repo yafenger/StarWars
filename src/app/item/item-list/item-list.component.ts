@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {StarwarsService} from 'src/app/shared/starwars.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import { ScreenSizeService } from 'src/app/shared/screen-size.service';
 
 @Component({
   selector: 'app-item-list',
@@ -12,10 +13,14 @@ export class ItemListComponent implements OnInit {
   cat: string;
   items: any = [];
 
+
   constructor(private _swService: StarwarsService,
               private _route: ActivatedRoute,
-              private _router: Router) {
+              private _router: Router,
+              private _sizeService:ScreenSizeService) {
   }
+
+  isMobileSize:boolean=this._sizeService.isMobileSize();
 
   ngOnInit() {
     this.getItemsByCategory();
@@ -46,5 +51,6 @@ export class ItemListComponent implements OnInit {
     console.log(itemid);
     this._router.navigate(['item/'+cat+'/'+itemid]);
   }
+
 
 }
