@@ -2,9 +2,14 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
-  {path: 'category', loadChildren: './category/category.module#CategoryModule'},
-  {path: 'item', loadChildren: './item/item.module#ItemModule'},
-  {path: '', redirectTo: '/category', pathMatch: 'full'}
+  {
+    path: 'categories',
+    loadChildren: () => import('./category/category.module').then((mod => mod.CategoryModule))
+  }, {
+    path: 'items',
+    loadChildren: () => import('./item/item.module').then((mod => mod.ItemModule))
+  },
+  {path: '', redirectTo: '/categories', pathMatch: 'full'}
 ];
 
 @NgModule({

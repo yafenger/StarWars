@@ -8,28 +8,37 @@ import {catchError} from 'rxjs/operators';
 })
 export class StarwarsService {
 
-  // baseUrl = environment.apiUrl;
-
-  constructor(private httpClient: HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
-  getItemsByCategory(cat: string): Observable<any> {
-    return this.httpClient.get<any>('/api/' + cat)
-      .pipe(catchError(this.handleError));
-  }
-  getItemDetialsByItem(cat:string,itemid:string):Observable<any> {
-    return this.httpClient.get<any>('/api/'+cat+'/'+itemid)
-      .pipe(catchError(this.handleError));
-  }
-  getFilm(filmUrl:string): Observable<any> {
-    return this.httpClient.get<any>(filmUrl)
-  }
-  private handleError(errorResponse: HttpErrorResponse) {
+  readonly ROOT_URL = '';
+  data: Observable<any>;
+
+  private static handleError(errorResponse: HttpErrorResponse) {
     if (errorResponse.error instanceof ErrorEvent) {
       console.error('Client Side Error :', errorResponse.error.message);
     } else {
       console.error('Server Side Error :', errorResponse);
     }
     return throwError('There is a problem with the service. We are notified & working on it. Please try again later.');
+  }
+  //
+  // getFilm(filmUrl: string): Observable<any> {
+  //   return this.http.get<any>(filmUrl);
+  // }
+  get(url: string) {
+    return this.http.get<any>(url).pipe(catchError(StarwarsService.handleError));
+  }
+
+  getCategories() {
+    return this.http.get<any>(this.ROOT_URL).pipe(catchError(StarwarsService.handleError));
+  }
+
+  getItemsByCategory(cat: string): Observable<any> {
+    return this.http.get<any>(this.ROOT_URL + cat).pipe(catchError(StarwarsService.handleError));
+  }
+
+  getDetailsByItem(cat: string, itemid: string): Observable<any> {
+    return this.http.get<any>(this.ROOT_URL + cat + '/' + itemid).pipe(catchError(StarwarsService.handleError));
   }
 }

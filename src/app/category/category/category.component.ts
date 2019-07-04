@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {StarwarsService} from '../../shared/starwars.service';
 import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-category',
@@ -7,27 +10,21 @@ import {Router} from '@angular/router';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
+  entries: { [key: string]: string };
+  API_URL = 'https://swapi.co/api/';
+  // links: string[];
 
-  categories: string[] = [];
-
-  constructor(private _router: Router) {
+  constructor(private http: HttpClient, private _swService: StarwarsService, private _router: Router) {
   }
 
   ngOnInit() {
-    //haven't found data in SWAPI, just hard code for now
-    this.categories = [
-      'Planets',
-      'Starships',
-      'Vehicles',
-      'People',
-      'Films',
-      'Species'
-    ]
+    this._swService.get(this.API_URL).subscribe(data => {
+      console.log(data);
+      this.entries = Object(data);
+    });
   }
 
-  onClick(cat: string) {
-    cat=cat.toLowerCase();
-    this._router.navigate(['category/items', cat]);
+  onClick(url: string) {
+    this._router.navigate(['category/items', url]);
   }
-
 }

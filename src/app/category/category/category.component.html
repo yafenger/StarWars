@@ -1,12 +1,12 @@
 <br/>
 <div id="main">
-    <div id="container">
-      <div class="grid grid-pad">
-        <a *ngFor="let cat of categories" class="col-1-6" (click)="onClick(cat)">
-          <div class="module">
-            <h4>{{ cat }}</h4>
-          </div>
-        </a>
-      </div>
+  <div id="container">
+    <div class="grid grid-pad">
+      <a *ngFor="let entry of entries | keyvalue" class="col-1-6" (click)="onClick(entry.key)">
+        <div class="module">
+          <h4>{{ entry.key | titlecase }}</h4>
+        </div>
+      </a>
     </div>
   </div>
+</div>
