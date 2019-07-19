@@ -1,7 +1,7 @@
 # StarWars
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve --proxy-config proxy.conf.json` or `npm run start`  for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 # Deployment Server
 1. Website can be accessed at the following URL http://3.1.206.225 on Amazon EC2
