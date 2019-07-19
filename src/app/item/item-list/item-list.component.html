@@ -8,14 +8,14 @@
     <div class="card border-warning" *ngFor="let item of items">
         <div class="card-body">
             <ng-template [ngIf]="cat==='films'" [ngIfElse]="others">
-                <div>
-                    <h2><a (click)="onClick(cat.toString(),item.url.toString())">{{item.title}}</a></h2>
+                <div (click)="onClick(cat.toString(),item.url.toString())">
+                    <h2><a>{{item.title}}</a></h2>
                 </div>
             </ng-template>
 
             <ng-template #others>
-                <div>
-                    <h2><a (click)="onClick(cat.toString(),item.url.toString())">{{item.name}}</a></h2>
+                <div (click)="onClick(cat.toString(),item.url.toString())">
+                    <h2><a>{{item.name}}</a></h2>
                 </div>
             </ng-template>
         </div>

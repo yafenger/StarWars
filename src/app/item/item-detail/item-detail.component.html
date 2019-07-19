@@ -1,173 +1,405 @@
-<div *ngIf="cat && itemdetails">
-      <div *ngIf="cat==='people'">
-          <h2 style="color:blue" (click)="clickToBack()">{{cat}}<<{{itemdetails.name}}<<</h2>
-          <table>
-              <tr><td>Name:<td>{{itemdetails.name}} </td></tr>
-              <tr><td>Height:</td><td>{{itemdetails.height}} </td></tr>
-              <tr><td>Mass:</td><td>{{itemdetails.mass}}</td></tr>
-              <tr><td>Hair Color:</td><td>{{itemdetails.hair_color}}</td></tr>
-              <tr><td>Skin Color:</td><td>{{itemdetails.skin_color}}</td></tr>
-              <tr><td>Eye Color:</td><td>{{itemdetails.eye_color}}</td></tr>
-              <tr><td>Birth Year:</td><td>{{itemdetails.birth_year}}</td></tr>
-              <tr><td>Gender:</td><td>{{itemdetails.gender}}</td></tr>
-              <tr><td>Homeworld:</td><td><a (click)="onClick('planets',itemdetails.homeworld)">{{itemdetails.homeworld}}</a></td></tr>
-          </table>
-          <table>
-            <th>Related Films:</th>
-            <tr *ngFor="let film of itemdetails.films"><td><a (click)="onClick('films',film)">{{film}}</a></td></tr>
-          </table>
-          <table>
-              <th>Related Vehicles:</th>
-              <tr *ngFor="let vehicle of itemdetails.vehicles"><td><a (click)="onClick('vehicles',vehicle)">{{vehicle}}</a></td></tr>
-            </table>
-            <table>
-                <th>Related Starships:</th>
-                <tr *ngFor="let starship of itemdetails.starships"><td><a (click)="onClick('starships',starship)">{{starships}}</a></td></tr>
-              </table>
-              Comments:<br/>
-              <textarea #inputcomments name="inputcomments" value={{initcomments}} rows="5" cols="40"></textarea><br/>
-              <button type="button" (click)="WriteToStorage(itemdetails.name,inputcomments.value)">Save</button>
+<br />
+<div *ngIf="cat && itemdetails" class="container col-md-8">
+    <div *ngIf="cat==='people'">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title" style="color:blue" (click)="clickToBack()"><strong><<</strong>{{itemdetails.name}}</h2>
+                        <div class="card-text">
+                        <table>
+                            <tr>
+                                <td>Name:
+                                <td>{{itemdetails.name}} </td>
+                            </tr>
+                            <tr>
+                                <td>Height:</td>
+                                <td>{{itemdetails.height}} </td>
+                            </tr>
+                            <tr>
+                                <td>Mass:</td>
+                                <td>{{itemdetails.mass}}</td>
+                            </tr>
+                            <tr>
+                                <td>Hair Color:</td>
+                                <td>{{itemdetails.hair_color}}</td>
+                            </tr>
+                            <tr>
+                                <td>Skin Color:</td>
+                                <td>{{itemdetails.skin_color}}</td>
+                            </tr>
+                            <tr>
+                                <td>Eye Color:</td>
+                                <td>{{itemdetails.eye_color}}</td>
+                            </tr>
+                            <tr>
+                                <td>Birth Year:</td>
+                                <td>{{itemdetails.birth_year}}</td>
+                            </tr>
+                            <tr>
+                                <td>Gender:</td>
+                                <td>{{itemdetails.gender}}</td>
+                            </tr>
+                            <tr>
+                                <td>Homeworld:</td>
+                                <td><a (click)="onClick('planets',itemdetails.homeworld)">{{itemdetails.homeworld}}</a>
+                                </td>
+                            </tr>
+                        </table>
+            </div>
         </div>
-        <div *ngIf="cat==='planets'">
-            <h2 style="color:blue" (click)="clickToBack()">{{cat}}<<{{itemdetails.name}}<<</h2>
-          <table>
-              <tr><td>Name:<td>{{itemdetails.name}} </td></tr>
-              <tr><td>Rotation Period:</td><td>{{itemdetails.rotation_period}} </td></tr>
-              <tr><td>Orbital Period:</td><td>{{itemdetails.orbital_period}}</td></tr>
-              <tr><td>Diameter:</td><td>{{itemdetails.diameter}}</td></tr>
-              <tr><td>Climate:</td><td>{{itemdetails.climate}}</td></tr>
-              <tr><td>Gravity:</td><td>{{itemdetails.gravity}}</td></tr>
-              <tr><td>Terrain:</td><td>{{itemdetails.terrain}}</td></tr>
-              <tr><td>Surface Water:</td><td>{{itemdetails.surface_water}}</td></tr>
-              <tr><td>Population:</td><td>{{itemdetails.population}}</td></tr>
-          </table>
-          <table>
-              <th>Related Films:</th>
-              <tr *ngFor="let film of itemdetails.films"><td><a (click)="onClick('films',film)">{{film}}</a></td></tr>
-            </table>
-            <table>
-                <th>Residents:</th>
-                <tr *ngFor="let resident of itemdetails.residents"><td><a (click)="onClick('residents',resident)">{{resident}}</a></td></tr>
-              </table>
-              Comments:<br/>
-              <textarea #inputcomments name="inputcomments" value={{initcomments}} rows="5" cols="40"></textarea><br/>
-              <button type="button" (click)="WriteToStorage(itemdetails.name,inputcomments.value)">Save</button>
+    </div>
+    <table>
+        <th>Related Films:</th>
+        <tr *ngFor="let film of itemdetails.films">
+            <td><a (click)="onClick('films',film)">{{film}}</a></td>
+        </tr>
+    </table>
+    <table>
+        <th>Related Vehicles:</th>
+        <tr *ngFor="let vehicle of itemdetails.vehicles">
+            <td><a (click)="onClick('vehicles',vehicle)">{{vehicle}}</a></td>
+        </tr>
+    </table>
+    <table>
+        <th>Related Starships:</th>
+        <tr *ngFor="let starship of itemdetails.starships">
+            <td><a (click)="onClick('starships',starship)">{{starships}}</a></td>
+        </tr>
+    </table>
+    Comments:<br />
+    <textarea #inputcomments name="inputcomments" value={{initcomments}} rows="5" cols="40"></textarea><br />
+    <button type="button" (click)="WriteToStorage(itemdetails.name,inputcomments.value)">Save</button>
+</div>
+<div *ngIf="cat==='planets'">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title" style="color:blue" (click)="clickToBack()"><<{{itemdetails.name}}</h2> <div
+                    class="card-text">
+                    <table>
+                        <tr>
+                            <td>Name:
+                            <td>{{itemdetails.name}} </td>
+                        </tr>
+                        <tr>
+                            <td>Rotation Period:</td>
+                            <td>{{itemdetails.rotation_period}} </td>
+                        </tr>
+                        <tr>
+                            <td>Orbital Period:</td>
+                            <td>{{itemdetails.orbital_period}}</td>
+                        </tr>
+                        <tr>
+                            <td>Diameter:</td>
+                            <td>{{itemdetails.diameter}}</td>
+                        </tr>
+                        <tr>
+                            <td>Climate:</td>
+                            <td>{{itemdetails.climate}}</td>
+                        </tr>
+                        <tr>
+                            <td>Gravity:</td>
+                            <td>{{itemdetails.gravity}}</td>
+                        </tr>
+                        <tr>
+                            <td>Terrain:</td>
+                            <td>{{itemdetails.terrain}}</td>
+                        </tr>
+                        <tr>
+                            <td>Surface Water:</td>
+                            <td>{{itemdetails.surface_water}}</td>
+                        </tr>
+                        <tr>
+                            <td>Population:</td>
+                            <td>{{itemdetails.population}}</td>
+                        </tr>
+                    </table>
         </div>
-        <div *ngIf="cat==='starships'">
-            <h2 style="color:blue" (click)="clickToBack()">{{cat}}<<{{itemdetails.name}}<<</h2>
-            <table>
-                <tr><td>Name:<td>{{itemdetails.name}} </td></tr>
-                <tr><td>Model:</td><td>{{itemdetails.model}} </td></tr>
-                <tr><td>Manufacturer:</td><td>{{itemdetails.manufacturer}}</td></tr>
-                <tr><td>Cost in Credits:</td><td>{{itemdetails.cost_in_credits}}</td></tr>
-                <tr><td>Length:</td><td>{{itemdetails.length}}</td></tr>
-                <tr><td>Max Atmosphering Speed:</td><td>{{itemdetails.max_atmosphering_speed}}</td></tr>
-                <tr><td>Crew:</td><td>{{itemdetails.crew}}</td></tr>
-                <tr><td>passengers:</td><td>{{itemdetails.passengers}}</td></tr>
-                <tr><td>Cargo Capacity:</td><td>{{itemdetails.cargo_capacity}}</td></tr>
-                <tr><td>Consumables:</td><td>{{itemdetails.consumables}}</td></tr>
-                <tr><td>Hyperdrive Rating:</td><td>{{itemdetails.hyperdrive_rating}}</td></tr>
-                <tr><td>MGLT:</td><td>{{itemdetails.MGLT}}</td></tr>
-                <tr><td>Starship Class:</td><td>{{itemdetails.starship_class}}</td></tr>
+
+    </div>
+</div>
+<table>
+    <th>Related Films:</th>
+    <tr *ngFor="let film of itemdetails.films">
+        <td><a (click)="onClick('films',film)">{{film}}</a></td>
+    </tr>
+</table>
+<table>
+    <th>Residents:</th>
+    <tr *ngFor="let resident of itemdetails.residents">
+        <td><a (click)="onClick('residents',resident)">{{resident}}</a></td>
+    </tr>
+</table>
+Comments:<br />
+<textarea #inputcomments name="inputcomments" value={{initcomments}} rows="5" cols="40"></textarea><br />
+<button type="button" (click)="WriteToStorage(itemdetails.name,inputcomments.value)">Save</button>
+</div>
+<div *ngIf="cat==='starships'">
+    <h2 style="color:blue" (click)="clickToBack()"><<{{itemdetails.name}}</h2> <table>
+            <tr>
+                <td>Name:
+                <td>{{itemdetails.name}} </td>
+            </tr>
+            <tr>
+                <td>Model:</td>
+                <td>{{itemdetails.model}} </td>
+            </tr>
+            <tr>
+                <td>Manufacturer:</td>
+                <td>{{itemdetails.manufacturer}}</td>
+            </tr>
+            <tr>
+                <td>Cost in Credits:</td>
+                <td>{{itemdetails.cost_in_credits}}</td>
+            </tr>
+            <tr>
+                <td>Length:</td>
+                <td>{{itemdetails.length}}</td>
+            </tr>
+            <tr>
+                <td>Max Atmosphering Speed:</td>
+                <td>{{itemdetails.max_atmosphering_speed}}</td>
+            </tr>
+            <tr>
+                <td>Crew:</td>
+                <td>{{itemdetails.crew}}</td>
+            </tr>
+            <tr>
+                <td>passengers:</td>
+                <td>{{itemdetails.passengers}}</td>
+            </tr>
+            <tr>
+                <td>Cargo Capacity:</td>
+                <td>{{itemdetails.cargo_capacity}}</td>
+            </tr>
+            <tr>
+                <td>Consumables:</td>
+                <td>{{itemdetails.consumables}}</td>
+            </tr>
+            <tr>
+                <td>Hyperdrive Rating:</td>
+                <td>{{itemdetails.hyperdrive_rating}}</td>
+            </tr>
+            <tr>
+                <td>MGLT:</td>
+                <td>{{itemdetails.MGLT}}</td>
+            </tr>
+            <tr>
+                <td>Starship Class:</td>
+                <td>{{itemdetails.starship_class}}</td>
+            </tr>
             </table>
             <table>
                 <th>Related Films:</th>
-                <tr *ngFor="let film of itemdetails.films"><td><a (click)="onClick('films',film)">{{film}}</a></td></tr>
-              </table>
-              <table>
-                  <th>Related Pilots:</th>
-                  <tr *ngFor="let pilot of itemdetails.pilots"><td><a (click)="onClick('pilots',pilot)">{{pilot}}</a></td></tr>
-                </table>
-                Comments:<br/>
-                <textarea #inputcomments name="inputcomments" value={{initcomments}} rows="5" cols="40"></textarea><br/>
-                <button type="button" (click)="WriteToStorage(itemdetails.name,inputcomments.value)">Save</button>
-          </div>
-          <div *ngIf="cat==='vehicles'">
-              <h2 style="color:blue" (click)="clickToBack()">{{cat}}<<{{itemdetails.name}}<<</h2>
-              <table>
-                  <tr><td>Name:<td>{{itemdetails.name}} </td></tr>
-                  <tr><td>Model:</td><td>{{itemdetails.model}} </td></tr>
-                  <tr><td>Manufacturer:</td><td>{{itemdetails.manufacturer}}</td></tr>
-                  <tr><td>Cost in Credits:</td><td>{{itemdetails.cost_in_credits}}</td></tr>
-                  <tr><td>Length:</td><td>{{itemdetails.length}}</td></tr>
-                  <tr><td>Max Atmosphering Speed:</td><td>{{itemdetails.max_atmosphering_speed}}</td></tr>
-                  <tr><td>Crew:</td><td>{{itemdetails.crew}}</td></tr>
-                  <tr><td>passengers:</td><td>{{itemdetails.passengers}}</td></tr>
-                  <tr><td>Cargo Capacity:</td><td>{{itemdetails.cargo_capacity}}</td></tr>
-                  <tr><td>Consumables:</td><td>{{itemdetails.consumables}}</td></tr>
-                  <tr><td>Vehicle Class:</td><td>{{itemdetails.vehicle_class}}</td></tr>
-              </table>
-              <table>
-                  <th>Related Films:</th>
-                  <tr *ngFor="let film of itemdetails.films"><td><a (click)="onClick('films',film)">{{film}}</a></td></tr>
-                </table>
-                <table>
-                    <th>Related Pilots:</th>
-                    <tr *ngFor="let pilot of itemdetails.pilots"><td><a (click)="onClick('pilots',pilot)">{{pilot}}</a></td></tr>
-                  </table>
-                  Comments:<br/>
-                  <textarea #inputcomments name="inputcomments" value={{initcomments}} rows="5" cols="40"></textarea><br/>
-                  <button type="button" (click)="WriteToStorage(itemdetails.name,inputcomments.value)">Save</button>
-            </div>
-            <div *ngIf="cat==='films'">
-                <h2 style="color:blue" (click)="clickToBack()">{{cat}}<<{{itemdetails.title}}<<</h2>
-                <table>
-                    <tr><td>Title:<td>{{itemdetails.title}} </td></tr>
-                    <tr><td>Episode ID:</td><td>{{itemdetails.episode_id}} </td></tr>
-                    <tr><td>Opening Crawl:</td><td>{{itemdetails.opening_crawl}}</td></tr>
-                    <tr><td>Director:</td><td>{{itemdetails.director}}</td></tr>
-                    <tr><td>Producer:</td><td>{{itemdetails.producer}}</td></tr>
-                    <tr><td>Release Date:</td><td>{{itemdetails.release_date}}</td></tr>
-                </table>
-                <table>
-                    <th>Related Characters:</th>
-                    <tr *ngFor="let character of itemdetails.characters"><td><a (click)="onClick('people',character)">{{character}}</a></td></tr>
-                  </table>
-                  <table>
-                      <th>Related Planets:</th>
-                      <tr *ngFor="let planet of itemdetails.planets"><td><a (click)="onClick('planets',planet)">{{planet}}</a></td></tr>
-                    </table>
+                <tr *ngFor="let film of itemdetails.films">
+                    <td><a (click)="onClick('films',film)">{{film}}</a></td>
+                </tr>
+            </table>
+            <table>
+                <th>Related Pilots:</th>
+                <tr *ngFor="let pilot of itemdetails.pilots">
+                    <td><a (click)="onClick('pilots',pilot)">{{pilot}}</a></td>
+                </tr>
+            </table>
+            Comments:<br />
+            <textarea #inputcomments name="inputcomments" value={{initcomments}} rows="5" cols="40"></textarea><br />
+            <button type="button" (click)="WriteToStorage(itemdetails.name,inputcomments.value)">Save</button>
+</div>
+<div *ngIf="cat==='vehicles'">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title" style="color:blue" (click)="clickToBack()"><<{{itemdetails.name}}</h2>
                     <table>
-                        <th>Related Starships:</th>
-                        <tr *ngFor="let starship of itemdetails.starships"><td><a (click)="onClick('starships',starship)">{{starships}}</a></td></tr>
-                      </table>
-                      <table>
-                          <th>Related Vehicles:</th>
-                          <tr *ngFor="let vehicle of itemdetails.vehicles"><td><a (click)="onClick('vehicles',vehicle)">{{vehicle}}</a></td></tr>
-                      </table>
-                      <table>
-                          <th>Related Species:</th>
-                          <tr *ngFor="let specie of itemdetails.species"><td><a (click)="onClick('species',specie)">{{specie}}</a></td></tr>
-                      </table>
-                      Comments:<br/>
-                      <textarea #inputcomments name="inputcomments" value={{initcomments}} rows="5" cols="40"></textarea><br/>
-                      <button type="button" (click)="WriteToStorage(itemdetails.title,inputcomments.value)">Save</button>
-              </div>
-              <div *ngIf="cat==='species'">
-                  <h2 style="color:blue" (click)="clickToBack()">{{cat}}<<{{itemdetails.name}}<<</h2>
-                  <table>
-                      <tr><td>Name:<td>{{itemdetails.name}} </td></tr>
-                      <tr><td>Classification:</td><td>{{itemdetails.classification}} </td></tr>
-                      <tr><td>Designation:</td><td>{{itemdetails.designation}}</td></tr>
-                      <tr><td>Average Height:</td><td>{{itemdetails.average_height}}</td></tr>
-                      <tr><td>Skin Colors:</td><td>{{itemdetails.skin_colors}}</td></tr>
-                      <tr><td>Hair Colors:</td><td>{{itemdetails.hair_colors}}</td></tr>
-                      <tr><td>Eye Colors:</td><td>{{itemdetails.eye_colors}}</td></tr>
-                      <tr><td>Average Lifespan:</td><td>{{itemdetails.average_lifespan}}</td></tr>
-                      <tr><td>Homeworld:</td><td>{{itemdetails.homeworld}}</td></tr>
-                      <tr><td>Language:</td><td>{{itemdetails.language}}</td></tr>
-                  </table>
-                  <table>
-                      <th>Related Characters:</th>
-                      <tr *ngFor="let character of itemdetails.characters"><td><a (click)="onClick('people',character)">{{character}}</a></td></tr>
+                    <tr>
+                        <td>Name:
+                        <td>{{itemdetails.name}} </td>
+                    </tr>
+                    <tr>
+                        <td>Model:</td>
+                        <td>{{itemdetails.model}} </td>
+                    </tr>
+                    <tr>
+                        <td>Manufacturer:</td>
+                        <td>{{itemdetails.manufacturer}}</td>
+                    </tr>
+                    <tr>
+                        <td>Cost in Credits:</td>
+                        <td>{{itemdetails.cost_in_credits}}</td>
+                    </tr>
+                    <tr>
+                        <td>Length:</td>
+                        <td>{{itemdetails.length}}</td>
+                    </tr>
+                    <tr>
+                        <td>Max Atmosphering Speed:</td>
+                        <td>{{itemdetails.max_atmosphering_speed}}</td>
+                    </tr>
+                    <tr>
+                        <td>Crew:</td>
+                        <td>{{itemdetails.crew}}</td>
+                    </tr>
+                    <tr>
+                        <td>passengers:</td>
+                        <td>{{itemdetails.passengers}}</td>
+                    </tr>
+                    <tr>
+                        <td>Cargo Capacity:</td>
+                        <td>{{itemdetails.cargo_capacity}}</td>
+                    </tr>
+                    <tr>
+                        <td>Consumables:</td>
+                        <td>{{itemdetails.consumables}}</td>
+                    </tr>
+                    <tr>
+                        <td>Vehicle Class:</td>
+                        <td>{{itemdetails.vehicle_class}}</td>
+                    </tr>
                     </table>
+        </div>
+    </div>
+    <table>
+        <th>Related Films:</th>
+        <tr *ngFor="let film of itemdetails.films">
+            <td><a (click)="onClick('films',film)">{{film}}</a></td>
+        </tr>
+    </table>
+    <table>
+        <th>Related Pilots:</th>
+        <tr *ngFor="let pilot of itemdetails.pilots">
+            <td><a (click)="onClick('pilots',pilot)">{{pilot}}</a></td>
+        </tr>
+    </table>
+    Comments:<br />
+    <textarea #inputcomments name="inputcomments" value={{initcomments}} rows="5" cols="40"></textarea><br />
+    <button type="button" (click)="WriteToStorage(itemdetails.name,inputcomments.value)">Save</button>
+
+</div>
+<div *ngIf="cat==='films'">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title" style="color:blue" (click)="clickToBack()"><<{{itemdetails.title}}</h2>
                     <table>
-                        <th>Related Films:</th>
-                        <tr *ngFor="let film of itemdetails.films"><td><a (click)="onClick('films',film)">{{film}}</a></td></tr>
-                      </table>
-                      Comments:<br/>
-                      <textarea #inputcomments name="inputcomments" value={{initcomments}} rows="5" cols="40"></textarea><br/>
-                      <button type="button" (click)="WriteToStorage(itemdetails.name,inputcomments.value)">Save</button>
-                </div>
-  </div>
- 
+                    <tr>
+                        <td>Title:
+                        <td>{{itemdetails.title}} </td>
+                    </tr>
+                    <tr>
+                        <td>Episode ID:</td>
+                        <td>{{itemdetails.episode_id}} </td>
+                    </tr>
+                    <tr>
+                        <td>Opening Crawl:</td>
+                        <td>{{itemdetails.opening_crawl}}</td>
+                    </tr>
+                    <tr>
+                        <td>Director:</td>
+                        <td>{{itemdetails.director}}</td>
+                    </tr>
+                    <tr>
+                        <td>Producer:</td>
+                        <td>{{itemdetails.producer}}</td>
+                    </tr>
+                    <tr>
+                        <td>Release Date:</td>
+                        <td>{{itemdetails.release_date}}</td>
+                    </tr>
+                    </table>
+        </div>
+    </div>
+    <table>
+        <th>Related Characters:</th>
+        <tr *ngFor="let character of itemdetails.characters">
+            <td><a (click)="onClick('people',character)">{{character}}</a></td>
+        </tr>
+    </table>
+    <table>
+        <th>Related Planets:</th>
+        <tr *ngFor="let planet of itemdetails.planets">
+            <td><a (click)="onClick('planets',planet)">{{planet}}</a></td>
+        </tr>
+    </table>
+    <table>
+        <th>Related Starships:</th>
+        <tr *ngFor="let starship of itemdetails.starships">
+            <td><a (click)="onClick('starships',starship)">{{starships}}</a></td>
+        </tr>
+    </table>
+    <table>
+        <th>Related Vehicles:</th>
+        <tr *ngFor="let vehicle of itemdetails.vehicles">
+            <td><a (click)="onClick('vehicles',vehicle)">{{vehicle}}</a></td>
+        </tr>
+    </table>
+    <table>
+        <th>Related Species:</th>
+        <tr *ngFor="let specie of itemdetails.species">
+            <td><a (click)="onClick('species',specie)">{{specie}}</a></td>
+        </tr>
+    </table>
+    Comments:<br />
+    <textarea #inputcomments name="inputcomments" value={{initcomments}} rows="5" cols="40"></textarea><br />
+    <button type="button" (click)="WriteToStorage(itemdetails.title,inputcomments.value)">Save</button>
+</div>
+<div *ngIf="cat==='species'">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title" style="color:blue" (click)="clickToBack()"><<{{itemdetails.name}}</h2>
+                    <table>
+                    <tr>
+                        <td>Name:
+                        <td>{{itemdetails.name}} </td>
+                    </tr>
+                    <tr>
+                        <td>Classification:</td>
+                        <td>{{itemdetails.classification}} </td>
+                    </tr>
+                    <tr>
+                        <td>Designation:</td>
+                        <td>{{itemdetails.designation}}</td>
+                    </tr>
+                    <tr>
+                        <td>Average Height:</td>
+                        <td>{{itemdetails.average_height}}</td>
+                    </tr>
+                    <tr>
+                        <td>Skin Colors:</td>
+                        <td>{{itemdetails.skin_colors}}</td>
+                    </tr>
+                    <tr>
+                        <td>Hair Colors:</td>
+                        <td>{{itemdetails.hair_colors}}</td>
+                    </tr>
+                    <tr>
+                        <td>Eye Colors:</td>
+                        <td>{{itemdetails.eye_colors}}</td>
+                    </tr>
+                    <tr>
+                        <td>Average Lifespan:</td>
+                        <td>{{itemdetails.average_lifespan}}</td>
+                    </tr>
+                    <tr>
+                        <td>Homeworld:</td>
+                        <td>{{itemdetails.homeworld}}</td>
+                    </tr>
+                    <tr>
+                        <td>Language:</td>
+                        <td>{{itemdetails.language}}</td>
+                    </tr>
+                    </table>
+        </div>
+    </div>
+    <table>
+        <th>Related Characters:</th>
+        <tr *ngFor="let character of itemdetails.characters">
+            <td><a (click)="onClick('people',character)">{{character}}</a></td>
+        </tr>
+    </table>
+    <table>
+        <th>Related Films:</th>
+        <tr *ngFor="let film of itemdetails.films">
+            <td><a (click)="onClick('films',film)">{{film}}</a></td>
+        </tr>
+    </table>
+    Comments:<br />
+    <textarea #inputcomments name="inputcomments" value={{initcomments}} rows="5" cols="40"></textarea><br />
+    <button type="button" (click)="WriteToStorage(itemdetails.name,inputcomments.value)">Save</button>
+</div>
+</div>
