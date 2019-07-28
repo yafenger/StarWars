@@ -4,7 +4,7 @@
 Run `ng serve --proxy-config proxy.conf.json` or `npm run start`  for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 # Deployment Server
-1. Website can be accessed at the following URL http://3.1.206.225 on Amazon EC2
+1. Website can be accessed at the following URL http://3.1.206.225 or https://angular-star-wars.tk on Amazon EC2
 2. bash command to login - `ssh -A -i "angularstarwars.pem" ubuntu@ec2-3-1-206-225.ap-southeast-1.compute.amazonaws.com`
 3. go to app folder `cd /home/ubuntu/StarWars/`
 4. pull the latest updates `git pull`
@@ -24,6 +24,9 @@ https://github.com/angular/angular-cli/issues/4951
 https://my.freenom.com/clientarea.php?action=domaindetails&id=1065661230  
 https://www.youtube.com/watch?v=HwZ3wNaM69s  
 https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04  
+
+# Setting up Gzipped Contents
+https://www.digitalocean.com/community/tutorials/how-to-add-the-gzip-module-to-nginx-on-ubuntu-14-04
 
 # Github configure 
 1. follow the guide
